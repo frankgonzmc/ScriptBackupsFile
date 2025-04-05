@@ -6,14 +6,15 @@ def menu():
     link_path = Path(link)
 
     #Comprobar si la carpeta existe
-    if link_path.exists():
+    if link_path.is_dir():
         print("Ruta Correcta.")
         print("Ingrese la direccion de la carpeta de respaldo:")
         link_respaldo = Path(input("Direccion: "))
 
         #Comprobar si la carpeta de respaldo existe
-        if link_respaldo.exists():
+        if link_respaldo.is_dir():
             print("Ruta de respaldo correcta.")
+
         else:
             print("Ruta de respaldo incorrecta.")
     else:
