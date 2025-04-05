@@ -15,6 +15,12 @@ def menu():
         if link_respaldo.is_dir():
             print("Ruta de respaldo correcta.")
 
+            #Leer archivos de la ruta de origen
+            archivos = [archivo.name for archivo in link_path.iterdir() if archivo.is_file()]
+            print("Archivos en la carpeta:")
+            for archivo in archivos:
+                print(archivo)
+
         else:
             print("Ruta de respaldo incorrecta.")
     else:
