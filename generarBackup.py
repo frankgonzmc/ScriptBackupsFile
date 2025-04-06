@@ -1,4 +1,5 @@
 from pathlib import Path
+import shutil
 
 def menu():
     print("Ingrese la direccion de la carpeta que desea respaldar:")
@@ -16,10 +17,15 @@ def menu():
             print("Ruta de respaldo correcta.")
 
             #Leer archivos de la ruta de origen
-            archivos = [archivo.name for archivo in link_path.iterdir() if archivo.is_file()]
+            archivos = [archivo for archivo in link_path.iterdir() if archivo.is_file()]
             print("Archivos en la carpeta:")
             for archivo in archivos:
-                print(archivo)
+                print("Copiando archivo...")
+                #Copiar archivos a la carpeta de respaldo
+                link = link_respaldo / archivo.name
+                shutil.copy(archivo, link)
+
+            print("Archivos copiados correctamente.")
 
         else:
             print("Ruta de respaldo incorrecta.")
